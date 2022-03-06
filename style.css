@@ -1,0 +1,150 @@
+@import url("https://fonts.googleapis.com/css2?family=Nova+Square&family=Press+Start+2P&family=Rock+Salt&display=swap");
+
+:root {
+  box-sizing: border-box;
+  font-size: 62.5%;
+
+  --indigo-50: #e8eaf6;
+  --indigo-400: #7a88c9;
+  --indigo-500: #5d6dbe;
+  --indigo-900: #1a237e;
+}
+
+header {
+  font-family: "Rock Salt", cursive;
+  display: grid;
+  place-items: center;
+  color: var(--indigo-900);
+  font-size: 2rem;
+  position: relative;
+}
+
+.add-category-btn {
+  border: none;
+  background: var(--indigo-900);
+  color: white;
+  padding: 2rem;
+  border-radius: 100%;
+  font-size: 3rem;
+  cursor: pointer;
+}
+
+button {
+  cursor: pointer;
+}
+
+main {
+  margin: 50px clamp(2rem, -3.7143rem + 15.2381vw, 10%);
+  background: var(--indigo-50);
+  overflow: hidden;
+  border-radius: 4rem;
+  font-family: sans-serif;
+  /* height: 100vh; */
+}
+
+.modal {
+  max-width: 600px;
+  /* min-height: 200px; */
+
+  background: var(--indigo-900);
+  text-align: center;
+  padding: 20px 50px;
+  border-radius: 25px;
+  z-index: 10;
+}
+
+.modal > label {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.input {
+  margin-right: 10px;
+  border: none;
+  border-radius: 10px;
+  height: 30px;
+  background: var(--indigo-50);
+  padding: 0px 5px;
+}
+
+.modal > h2 {
+  color: white;
+}
+
+.modal-btn {
+  padding: 2px 30px;
+  border: none;
+  border-radius: 5px;
+  background: rgb(15, 186, 15);
+  font-weight: bold;
+  color: white;
+}
+
+.cancel-btn {
+  color: black;
+  background: var(--indigo-50);
+}
+
+.overlay {
+  background: black;
+  opacity: 0.9;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100vh;
+  z-index: 5;
+}
+.category-container {
+}
+
+details {
+  text-align: center;
+}
+
+summary {
+  font-size: 2rem;
+  background: var(--indigo-400);
+  padding: 3.5rem;
+  color: white;
+  cursor: pointer;
+  border-bottom: var(--indigo-500) 2px solid;
+}
+
+.list-container {
+  padding: 10px;
+  font-size: 2.5rem;
+}
+
+.list-item {
+  cursor: pointer;
+}
+
+.add-item-btn {
+  border: none;
+  border-radius: 50%;
+  background: var(--indigo-500);
+  color: white;
+  font-size: 3rem;
+  padding: 0.2rem 1rem;
+  margin: 10px;
+}
+
+/* helper classes  */
+.cross-word {
+  text-decoration: line-through;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+.active-summary {
+  background: var(--indigo-500);
+}

@@ -1,19 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bucket List</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<body>
+  <body>
+    <header>
+      <h1>Bucket List</h1>
+
+      <button class="add-category-btn">+</button>
+      <div class="modal hide">
+        <h2 class="modal-title">im a</h2>
+        <label for="input">
+          <input type="text" id="input" class="input" />
+          <div>
+            <button class="modal-btn submit-btn">submit</button>
+            <button class="modal-btn cancel-btn">cancel</button>
+          </div>
+        </label>
+      </div>
+      <div class="overlay hide"></div>
+    </header>
+
+    <main>
+      <div class="category-container">
+        <details>
+          <summary>Category Name</summary>
+
+          <div class="list-container">
+            <button class="add-item-btn">+</button>
+
+            <div class="list-item">jsfjkasflk</div>
+          </div>
+        </details>
+      </div>
+
+      <div class="category-container">
+        <details>
+          <summary>Category Name</summary>
+
+          <div class="list-container">
+            <button class="add-item-btn">+</button>
+
+            <div class="list-item">jsfjkasflk</div>
+          </div>
+        </details>
+      </div>
+    </main>
 
     <script src="index.js"></script>
     <script src="test-helpers.js"></script>
     <script src="index.test.js"></script>
-</body>
-
+  </body>
 </html>
