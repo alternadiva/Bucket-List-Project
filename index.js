@@ -54,3 +54,6 @@ function categoryTitle(input, parentNode) {
   let categoryHeaderContent = parentNode.append(title, arrowSymbol);
   return categoryHeaderContent;
 }
+
+const addCategoryBtn = document.getElementById("add-category-btn");
+addCategoryBtn.addEventListener("click", nameCategory);
