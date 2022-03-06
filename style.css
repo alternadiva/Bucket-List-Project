@@ -7,7 +7,7 @@
 }
 
 .categories {
-  background-color: antiquewhite;
+  background-color: lightgray;
   height: auto;
 }
 
@@ -32,7 +32,6 @@
 }
 
 .category-title {
-  background-color: aqua;
   padding: 0;
   margin: 0;
   width: max-content;
@@ -41,4 +40,17 @@
 
 .arrow {
   transform: rotate(180deg);
+}
+
+.list-div {
+}
+
+.active {
+  display: block;
+  background-color: whitesmoke;
+  height: 100px;
+}
+
+.rotate {
+  transform: rotate(90deg);
 }
