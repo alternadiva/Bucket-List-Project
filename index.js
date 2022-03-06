@@ -6,10 +6,11 @@ function addDefaultCategories() {
     let newCategory = document.createElement("div");
     newCategory.id = `category${n + 1}`;
     newCategory.className = "categories";
+    newCategory.innerText = `Category ${n + 1}`;
     categoriesDiv.appendChild(newCategory);
 
     n++;
   }
 }
 
-addDefaultCategories();
+window.addEventListener("load", addDefaultCategories);
