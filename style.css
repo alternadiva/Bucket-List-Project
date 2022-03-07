@@ -1,3 +1,8 @@
+#body {
+  position: relative;
+  width: 100vw;
+}
+
 #categories-container {
   background-color: azure;
   width: auto;
@@ -43,6 +48,8 @@
 }
 
 .list-div {
+  border-bottom-left-radius: inherit;
+  border-bottom-right-radius: inherit;
 }
 
 .active {
@@ -53,4 +60,24 @@
 
 .rotate {
   transform: rotate(90deg);
+}
+
+.pop-up-div {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -30%);
+  background-color: whitesmoke;
+  border: 1px solid black;
+  border-radius: 15px;
+  height: 200px;
+  min-width: 320px;
+  width: auto;
+
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  text-align: center;
+  justify-content: center;
+  gap: 20px;
 }
