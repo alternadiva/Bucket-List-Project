@@ -95,3 +95,34 @@ addCategoryBtn.addEventListener("click", nameCategoryPopUp);
 function nameCategoryPopUp() {
   popUpDiv.style.display = "flex";
 }
+
+//to-do-list functions
+
+function renderToDoListBtn() {
+  // const categoriesLenght = [...document.querySelectorAll(".categories")].length;
+  const list = document.querySelectorAll(".list-div");
+  for (let i = 0; i < list.length; i++) {
+    // list[i].innerHTML = "";
+    console.log(list[i]);
+    list[i].innerHTML = `<button class='btn' value='${
+      1 + i
+    }' id='btn${i}' >+</button>
+    `;
+  }
+}
+
+setTimeout(() => {
+  renderToDoListBtn();
+}, 10);
+
+function renderTodoItems() {}
+
+window.addEventListener("click", (e) => {
+  const target = e.target;
+
+  const targetClass = target.classList.value;
+  if (target.classList.value === "btn") {
+    let idValue = target.value;
+    let listContainer = document.querySelector(`#list${idValue}`);
+  }
+});

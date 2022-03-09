@@ -50,12 +50,13 @@
 .list-div {
   border-bottom-left-radius: inherit;
   border-bottom-right-radius: inherit;
+  display: none;
 }
 
 .active {
   display: block;
   background-color: whitesmoke;
-  height: 100px;
+  min-height: 100px;
 }
 
 .rotate {
