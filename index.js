@@ -4,6 +4,12 @@ const categoriesDiv = document.getElementById("categories-container");
 /* Function to render category header content to DOM */
 
 function categoryTitleContent(parentNode) {
+  // Category icon
+  const catIcon = document.createElement("img");
+  catIcon.className = "cat-icon";
+  catIcon.src = "./assets/star.png";
+  catIcon.alt = "default star icon";
+
   // Category name
   const title = document.createElement("h3");
   title.className = "category-title";
@@ -33,6 +39,7 @@ function categoryTitleContent(parentNode) {
   arrowSymbol.innerText = "►";
 
   let categoryHeaderContent = parentNode.append(
+    catIcon,
     title,
     editCatName,
     saveCatName,
@@ -77,7 +84,7 @@ function categoryHeaderEvents() {
   const saveCatBtn = document.getElementsByClassName("save-cat");
 
   categoriesDiv.childNodes.forEach((category) => {
-    category.children[0].children[0].addEventListener(
+    category.children[0].children[1].addEventListener(
       "click",
       toggleCategoryList
     );
@@ -107,6 +114,12 @@ window.addEventListener("load", addDefaultCategories);
 function addDefaultCategories() {
   while (n < 5) {
     addCategories();
+    let categoryName = categoriesDiv.children[n].children[0].children[1];
+    let categoryIcon = categoriesDiv.children[n].children[0].children[0];
+    for (let i = 0; i < categoriesDiv.children.length; i++) {
+      categoryName.innerText = categoryObject[n].categoryName;
+      categoryIcon.src = categoryObject[n].categoryIcon;
+    }
     n++;
   }
 }
@@ -257,3 +270,5 @@ let categoryObject = [
     iconAlt: "thumbs up icon",
   },
 ];
+
+console.log(categoryObject[0].categoryName);

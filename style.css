@@ -85,3 +85,7 @@
 .delete-cat {
   cursor: default;
 }
+
+.cat-icon {
+  height: 60%;
+}
