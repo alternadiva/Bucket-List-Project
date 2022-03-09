@@ -1,25 +1,41 @@
 const body = document.body;
 const categoriesDiv = document.getElementById("categories-container");
 
-/* Function to render category title content to DOM */
+/* Function to render category title div content to DOM */
 
 function categoryTitleContent(parentNode) {
+  // Category name
   const title = document.createElement("h3");
   title.className = "category-title";
   title.innerText = document.getElementById("name-category-input")
     ? document.getElementById("name-category-input").value || "Category"
     : "Category";
 
+  // Category edit button
+  const editCatName = document.createElement("p");
+  editCatName.className = "edit-cat";
+  editCatName.innerText = "Edit";
+
+  // Category name saving button
+  const saveCatName = document.createElement("p");
+  saveCatName.className = "save-cat";
+  saveCatName.innerText = "Save";
+  saveCatName.style.display = "none";
+
+  // Category delete button
   const deleteCatSign = document.createElement("p");
   deleteCatSign.className = "delete-cat";
   deleteCatSign.innerText = "Delete";
 
+  // Toggle arrow symbol
   const arrowSymbol = document.createElement("p");
   arrowSymbol.className = "arrow";
   arrowSymbol.innerText = "►";
 
   let categoryHeaderContent = parentNode.append(
     title,
+    editCatName,
+    saveCatName,
     deleteCatSign,
     arrowSymbol
   );
@@ -48,17 +64,27 @@ function addCategories() {
 
   categoriesDiv.appendChild(newCategory);
 
-  let deleteCatBtn = document.getElementsByClassName("delete-cat");
+  const editCatBtn = document.getElementsByClassName("edit-cat");
+  const deleteCatBtn = document.getElementsByClassName("delete-cat");
+  const saveCatBtn = document.getElementsByClassName("save-cat");
 
   categoriesDiv.childNodes.forEach((category) => {
     category.children[0].children[0].addEventListener(
       "click",
       toggleCategoryList
     );
-    category.children[0].children[2].addEventListener(
+    category.children[0].lastElementChild.addEventListener(
       "click",
       toggleCategoryList
     );
+  });
+
+  Array.from(editCatBtn).forEach((button) => {
+    button.addEventListener("click", editCategory);
+  });
+
+  Array.from(saveCatBtn).forEach((button) => {
+    button.addEventListener("click", saveCategory);
   });
 
   Array.from(deleteCatBtn).forEach((button) => {
@@ -85,13 +111,45 @@ function deleteCategory() {
   this.parentNode.parentNode.remove();
 }
 
+/* Edit category names and save new input */
+
+function editCategory() {
+  this.style.display = "none";
+  this.nextElementSibling.style.display = "block";
+  let catNameEl = this.previousElementSibling;
+  catNameEl.setAttribute("contenteditable", true);
+  catNameEl.setAttribute("spellcheck", false);
+  catNameEl.innerText = "";
+  catNameEl.style.background = "white";
+  catNameEl.style.caretColor = "red";
+  catNameEl.focus();
+
+  const observer = new MutationObserver((mutation) => {
+    catNameEl.textContent = mutation[0].target.data;
+    console.log(mutation);
+  });
+  observer.observe(catNameEl, {
+    characterData: true,
+    subtree: true,
+  });
+}
+
+function saveCategory() {
+  this.style.display = "none";
+  this.previousElementSibling.style.display = "block";
+  let catNameEl = this.parentNode.firstElementChild;
+  catNameEl.blur();
+  catNameEl.style.background = "none";
+  catNameEl.setAttribute("contenteditable", false);
+}
+
 /* Toggle category divs to open and close */
 
 function toggleCategoryList() {
   let listElement = this.parentNode.nextElementSibling;
   listElement.classList.toggle("active");
 
-  let arrowElement = this.parentNode.getElementsByTagName("p")[1];
+  let arrowElement = this.parentNode.lastElementChild;
   arrowElement.classList.toggle("rotate");
 }
 
