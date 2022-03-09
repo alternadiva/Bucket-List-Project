@@ -147,6 +147,7 @@
   bottom: 0;
   height: 100vh;
   z-index: 5;
+  display: none;
 }
 .cross-word {
   text-decoration: line-through;
