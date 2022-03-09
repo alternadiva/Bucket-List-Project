@@ -305,7 +305,7 @@ let categoryObject = [
   },
 ];
 
-//to-do-list functions
+//to-do-list
 
 function renderToDoListBtn() {
   const list = document.querySelectorAll(".list-div");
@@ -326,6 +326,8 @@ function renderToDoListBtn() {
 setTimeout(() => {
   renderToDoListBtn();
 }, 10);
+
+// todo list dome manipulation
 
 let x = 0;
 
@@ -355,14 +357,12 @@ window.addEventListener("click", (e) => {
 
   if (targetClass === "todoItem") {
     const targetTodo = e.target;
-    // const targetTodo = document.querySelector(`todo-${targetID}`);
     targetTodo.classList.add("done");
     targetTodo.classList.remove("todoItem");
   }
 
   if (targetClass === "done") {
     const targetTodo = e.target;
-    // const targetTodo = document.querySelector(`todo-${targetID}`);
     targetTodo.remove();
   }
 });
