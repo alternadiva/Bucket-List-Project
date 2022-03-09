@@ -79,6 +79,7 @@ function addCategories() {
 /* Event listeners for category header content */
 
 function categoryHeaderEvents() {
+  const catIcon = document.getElementsByClassName("cat-icon");
   const editCatBtn = document.getElementsByClassName("edit-cat");
   const deleteCatBtn = document.getElementsByClassName("delete-cat");
   const saveCatBtn = document.getElementsByClassName("save-cat");
@@ -92,6 +93,10 @@ function categoryHeaderEvents() {
       "click",
       toggleCategoryList
     );
+  });
+
+  Array.from(catIcon).forEach((button) => {
+    button.addEventListener("click", selectIcon);
   });
 
   Array.from(editCatBtn).forEach((button) => {
@@ -156,7 +161,7 @@ function editCategory() {
 function saveCategory() {
   this.style.display = "none";
   this.previousElementSibling.style.display = "block";
-  let catNameEl = this.parentNode.firstElementChild;
+  let catNameEl = this.parentNode.childNodes[1];
   catNameEl.blur();
   catNameEl.style.background = "none";
   catNameEl.setAttribute("contenteditable", false);
@@ -170,6 +175,35 @@ function toggleCategoryList() {
 
   let arrowElement = this.parentNode.lastElementChild;
   arrowElement.classList.toggle("rotate");
+}
+
+/* Select category icon */
+
+function selectIcon() {
+  let previousIcon = this;
+  let parentNode = previousIcon.parentNode;
+
+  let iconContainer = document.createElement("div");
+  iconContainer.className = "icon-div";
+
+  for (let i = 0; i < categoryObject.length; i++) {
+    let newIcon = document.createElement("img");
+    newIcon.src = categoryObject[i].categoryIcon;
+    newIcon.alt = categoryObject[i].iconAlt;
+    newIcon.className = "cat-icon";
+    newIcon.classList.add("icon-selection");
+    iconContainer.appendChild(newIcon);
+    newIcon.addEventListener("click", setCatIcon);
+  }
+
+  body.appendChild(iconContainer);
+
+  function setCatIcon() {
+    parentNode.replaceChild(this, previousIcon);
+    this.classList.remove("icon-selection");
+    categoryHeaderEvents();
+    iconContainer.remove();
+  }
 }
 
 /* Pop up window to get input value for category titles */
@@ -266,9 +300,7 @@ let categoryObject = [
   },
   {
     categoryName: "",
-    categoryIcon: "./assets/thumbs-uo.png",
+    categoryIcon: "./assets/thumbs-up.png",
     iconAlt: "thumbs up icon",
   },
 ];
-
-console.log(categoryObject[0].categoryName);

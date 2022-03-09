@@ -82,10 +82,35 @@
   gap: 20px;
 }
 
+.icon-div {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -30%);
+  background-color: whitesmoke;
+  border: 1px solid black;
+  border-radius: 15px;
+  height: auto;
+  min-width: 300px;
+  width: auto;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  text-align: center;
+  justify-content: center;
+  gap: 25px;
+}
+
 .delete-cat {
   cursor: default;
 }
 
 .cat-icon {
+  cursor: pointer;
   height: 60%;
+}
+
+.icon-selection {
+  height: 45px;
 }
