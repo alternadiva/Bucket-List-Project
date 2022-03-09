@@ -187,3 +187,73 @@ addCategoryBtn.addEventListener("click", nameCategoryPopUp);
 function nameCategoryPopUp() {
   popUpDiv.style.display = "flex";
 }
+
+/* Category Object */
+
+let categoryObject = [
+  {
+    categoryName: "Travel",
+    categoryIcon: "./assets/travel.png",
+    iconAlt: "suitcase icon",
+  },
+  {
+    categoryName: "Movies and Series",
+    categoryIcon: "./assets/movie.png",
+    iconAlt: "movie icon",
+  },
+  {
+    categoryName: "Books",
+    categoryIcon: "./assets/book.png",
+    iconAlt: "book icon",
+  },
+  {
+    categoryName: "Activities",
+    categoryIcon: "./assets/circus.png",
+    iconAlt: "circus icon",
+  },
+  {
+    categoryName: "Meals",
+    categoryIcon: "./assets/food.png",
+    iconAlt: "cutleries icon",
+  },
+  {
+    categoryName: "",
+    categoryIcon: "./assets/clock.png",
+    iconAlt: "clock icon",
+  },
+  {
+    categoryName: "",
+    categoryIcon: "./assets/drink.png",
+    iconAlt: "glass icon",
+  },
+  {
+    categoryName: "",
+    categoryIcon: "./assets/heart.png",
+    iconAlt: "heart icon",
+  },
+  {
+    categoryName: "",
+    categoryIcon: "./assets/laugh.png",
+    iconAlt: "laughing emoji",
+  },
+  {
+    categoryName: "",
+    categoryIcon: "./assets/music.png",
+    iconAlt: "musical notes icon",
+  },
+  {
+    categoryName: "",
+    categoryIcon: "./assets/smile.png",
+    iconAlt: "smiling emoji",
+  },
+  {
+    categoryName: "",
+    categoryIcon: "./assets/star.png",
+    iconAlt: "star icon",
+  },
+  {
+    categoryName: "",
+    categoryIcon: "./assets/thumbs-uo.png",
+    iconAlt: "thumbs up icon",
+  },
+];
