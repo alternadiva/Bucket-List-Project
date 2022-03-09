@@ -86,8 +86,6 @@
 /*  added style */
 
 .list-div {
-  display: grid;
-  place-items: center;
   padding: 10px;
 }
 
