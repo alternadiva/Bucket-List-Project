@@ -1,7 +1,7 @@
 const body = document.body;
 const categoriesDiv = document.getElementById("categories-container");
 
-/* Function to render category title div content to DOM */
+/* Function to render category header content to DOM */
 
 function categoryTitleContent(parentNode) {
   // Category name
@@ -42,7 +42,7 @@ function categoryTitleContent(parentNode) {
   return categoryHeaderContent;
 }
 
-/* Create category div with the default elements */
+/* Create category containers with the default elements */
 
 let n = 0;
 
@@ -64,6 +64,14 @@ function addCategories() {
 
   categoriesDiv.appendChild(newCategory);
 
+  categoryHeaderEvents();
+
+  popUpDiv.style.display = "none";
+}
+
+/* Event listeners for category header content */
+
+function categoryHeaderEvents() {
   const editCatBtn = document.getElementsByClassName("edit-cat");
   const deleteCatBtn = document.getElementsByClassName("delete-cat");
   const saveCatBtn = document.getElementsByClassName("save-cat");
@@ -90,8 +98,6 @@ function addCategories() {
   Array.from(deleteCatBtn).forEach((button) => {
     button.addEventListener("click", deleteCategory);
   });
-
-  popUpDiv.style.display = "none";
 }
 
 /* Show five pre-customized categories on window load */
