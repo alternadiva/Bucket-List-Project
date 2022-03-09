@@ -44,7 +44,8 @@ function addDefaultCategories() {
 
 function toggleCategoryList() {
   let listElement = this.childNodes[1];
-  listElement.classList.toggle("active");
+  // listElement.classList.toggle("active");
+  listElement.classList.add("active");
 
   let arrowElement = this.childNodes[0].getElementsByTagName("p")[0];
   arrowElement.classList.toggle("rotate");
@@ -99,14 +100,18 @@ function nameCategoryPopUp() {
 //to-do-list functions
 
 function renderToDoListBtn() {
-  // const categoriesLenght = [...document.querySelectorAll(".categories")].length;
   const list = document.querySelectorAll(".list-div");
   for (let i = 0; i < list.length; i++) {
     // list[i].innerHTML = "";
     console.log(list[i]);
-    list[i].innerHTML = `<button class='btn' value='${
-      1 + i
-    }' id='btn${i}' >+</button>
+    list[i].innerHTML = `
+    <form class="form-${1 + i}">
+    <label for="text-input-${1 + i}">add task</label>
+    <input class="text-input-${1 + i}" id="text-input-${1 + i}" type="text">
+    <button class="btn" value='${1 + i}' id="btn${i}">add toDO TASK</button>
+    </form>
+    <div class="todo-list-${1 + i}"></div>
+
     `;
   }
 }
@@ -115,37 +120,24 @@ setTimeout(() => {
   renderToDoListBtn();
 }, 10);
 
-const addToCategoryBtn = document.querySelector(".add-category-btn");
-const modal = document.querySelector(".modal");
-const modalTitle = document.querySelector(".modal-title");
-const cancelBtn = document.querySelector(".cancel-btn");
-const addTodoBtn = document.querySelector(".submit-btn");
-const overlay = document.querySelector(".overlay");
-const modalInput = document.querySelector(".input");
-
-function modalToggle() {
-  modal.classList.toggle("hide");
-  overlay.classList.toggle("hide");
-}
-
-function modalCatgoryText() {
-  modalTitle.textContent = "add to category";
-  addTodoBtn.textContent = "Add Category";
-}
-
 window.addEventListener("click", (e) => {
   const target = e.target;
 
   const targetClass = target.classList.value;
-  if (target.classList.value === "btn") {
+  if (targetClass === "btn") {
     let idValue = target.value;
-    let listContainer = document.querySelector(`#list${idValue}`);
-    target.addEventListener("click", modalToggle);
-    cancelBtn.addEventListener("click", modalToggle);
-    target.addEventListener("click", modalCatgoryText);
+    const form = document.querySelector(`.form-${idValue}`);
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      let input = document.querySelector(`.text-input-${idValue}`);
+      let inputValue = input.value;
+      const todoList = document.querySelector(`.todo-list-${idValue}`);
+      const todo = document.createElement("div");
+      todo.textContent = inputValue;
+      todo.classList.add = "todoItem";
+      todoList.appendChild(todo);
+      inputValue = " ";
+    });
   }
 });
-
-function renderTodoItems() {
-  const InputValue = document.querySelector(".input").value;
-}
