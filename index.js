@@ -1,5 +1,30 @@
-const body = document.querySelector("body");
+const body = document.body;
 const categoriesDiv = document.getElementById("categories-container");
+
+/* Function to render category title content to DOM */
+
+function categoryTitleContent(parentNode) {
+  const title = document.createElement("h3");
+  title.className = "category-title";
+  title.innerText = document.getElementById("name-category-input")
+    ? document.getElementById("name-category-input").value || "Category"
+    : "Category";
+
+  const deleteCatSign = document.createElement("p");
+  deleteCatSign.className = "delete-cat";
+  deleteCatSign.innerText = "Delete";
+
+  const arrowSymbol = document.createElement("p");
+  arrowSymbol.className = "arrow";
+  arrowSymbol.innerText = "►";
+
+  let categoryHeaderContent = parentNode.append(
+    title,
+    deleteCatSign,
+    arrowSymbol
+  );
+  return categoryHeaderContent;
+}
 
 /* Create category div with the default elements */
 
@@ -19,13 +44,27 @@ function addCategories() {
   listDiv.id = `list${n + 1}`;
   newCategory.appendChild(listDiv);
 
-  categoryTitle(categoryHeader);
+  categoryTitleContent(categoryHeader);
 
   categoriesDiv.appendChild(newCategory);
 
-  categoriesDiv.childNodes.forEach((category) =>
-    category.addEventListener("click", toggleCategoryList)
-  );
+  let deleteCatBtn = document.getElementsByClassName("delete-cat");
+
+  categoriesDiv.childNodes.forEach((category) => {
+    category.children[0].children[0].addEventListener(
+      "click",
+      toggleCategoryList
+    );
+    category.children[0].children[2].addEventListener(
+      "click",
+      toggleCategoryList
+    );
+  });
+
+  Array.from(deleteCatBtn).forEach((button) => {
+    button.addEventListener("click", deleteCategory);
+  });
+
   popUpDiv.style.display = "none";
 }
 
@@ -40,31 +79,20 @@ function addDefaultCategories() {
   }
 }
 
-/* Toggle category divs open and close */
+/* Delete categories */
 
-function toggleCategoryList() {
-  let listElement = this.childNodes[1];
-  listElement.classList.toggle("active");
-
-  let arrowElement = this.childNodes[0].getElementsByTagName("p")[0];
-  arrowElement.classList.toggle("rotate");
+function deleteCategory() {
+  this.parentNode.parentNode.remove();
 }
 
-/* Function to render category title inputs to DOM */
+/* Toggle category divs to open and close */
 
-function categoryTitle(parentNode) {
-  const title = document.createElement("h3");
-  title.className = "category-title";
-  title.innerText = document.getElementById("name-category-input")
-    ? document.getElementById("name-category-input").value || "Category"
-    : "Category";
+function toggleCategoryList() {
+  let listElement = this.parentNode.nextElementSibling;
+  listElement.classList.toggle("active");
 
-  const arrowSymbol = document.createElement("p");
-  arrowSymbol.className = "arrow";
-  arrowSymbol.innerText = "►";
-
-  let categoryHeaderContent = parentNode.append(title, arrowSymbol);
-  return categoryHeaderContent;
+  let arrowElement = this.parentNode.getElementsByTagName("p")[1];
+  arrowElement.classList.toggle("rotate");
 }
 
 /* Pop up window to get input value for category titles */
