@@ -1,36 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bucket List</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
 
-  <body>
-    <h1>Bucket List</h1>
-    <section>
-      <button id="add-category-btn" type="submit">+</button>
-      <div id="categories-container"></div>
-    </section>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bucket List</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
 
-    <section>
-      <div class="modal hide">
-        <h2 class="modal-title"></h2>
-        <label for="input">
-          <input type="text" id="input" class="input" />
-          <div>
-            <button class="modal-btn submit-btn">ADD</button>
-            <button class="modal-btn cancel-btn">cancel</button>
-          </div>
-        </label>
-      </div>
-      <div class="overlay hide"></div>
-    </section>
+<body>
+  <h1>Bucket List</h1>
+  <section>
+    <button id="add-category-btn" type="submit">+</button>
+    <div id="categories-container"></div>
+  </section>
 
-    <script src="index.js"></script>
-    <script src="test-helpers.js"></script>
-    <script src="index.test.js"></script>
-  </body>
+  <section>
+    <div class="modal hide">
+      <h2 class="modal-title"></h2>
+      <label for="input">
+        <input type="text" id="input" class="input" />
+        <div>
+          <button class="modal-btn submit-btn">ADD</button>
+          <button class="modal-btn cancel-btn">cancel</button>
+        </div>
+      </label>
+    </div>
+    <div class="overlay hide"></div>
+  </section>
+
+
+  <script src="index.js"></script>
+  <script src="test-helpers.js"></script>
+  <script src="index.test.js"></script>
+</body>
+
 </html>

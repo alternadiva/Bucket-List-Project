@@ -74,6 +74,7 @@ function addCategories() {
   categoryHeaderEvents();
 
   popUpDiv.style.display = "none";
+  return newCategory;
 }
 
 /* Event listeners for category header content */
@@ -223,6 +224,7 @@ input.id = "name-category-input";
 const submitBtn = document.createElement("button");
 submitBtn.type = "submit";
 submitBtn.innerText = "Submit";
+submitBtn.id = "submit-category";
 submitBtn.addEventListener("click", addCategories);
 
 popUpDiv.append(label, input, submitBtn);
@@ -305,14 +307,13 @@ let categoryObject = [
   },
 ];
 
-
 /* to-do-list */
 
 function renderToDoListBtn() {
   const list = document.querySelectorAll(".list-div");
   for (let i = 0; i < list.length; i++) {
     // list[i].innerHTML = "";
-    console.log(list[i]);
+    //console.log(list[i]);
     list[i].innerHTML = `
     <form class="form-${1 + i}">
     <label for="text-input-${1 + i}">add task</label>
@@ -328,7 +329,7 @@ setTimeout(() => {
   renderToDoListBtn();
 }, 10);
 
-// todo list dome manipulation
+/* todo list dome manipulation */
 
 let x = 0;
 
@@ -367,4 +368,3 @@ window.addEventListener("click", (e) => {
     targetTodo.remove();
   }
 });
-
