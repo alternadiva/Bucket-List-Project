@@ -139,6 +139,7 @@ body {
 .done {
   text-decoration: line-through;
   font-size: 1.5rem;
+  text-align: right;
 }
 .hide {
   display: none;
