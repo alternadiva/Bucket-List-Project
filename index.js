@@ -305,7 +305,8 @@ let categoryObject = [
   },
 ];
 
-//to-do-list
+
+/* to-do-list */
 
 function renderToDoListBtn() {
   const list = document.querySelectorAll(".list-div");
@@ -366,3 +367,4 @@ window.addEventListener("click", (e) => {
     targetTodo.remove();
   }
 });
+
