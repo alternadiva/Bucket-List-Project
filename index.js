@@ -65,6 +65,8 @@ function addCategories() {
   const listDiv = document.createElement("div");
   listDiv.className = "list-div";
   listDiv.id = `list${n + 1}`;
+  renderToDoListBtn(listDiv, n);
+
   newCategory.appendChild(listDiv);
 
   categoryTitleContent(categoryHeader);
@@ -309,27 +311,20 @@ let categoryObject = [
 
 /* to-do-list */
 
-function renderToDoListBtn() {
-  const list = document.querySelectorAll(".list-div");
-  for (let i = 0; i < list.length; i++) {
-    // list[i].innerHTML = "";
-    //console.log(list[i]);
-    list[i].innerHTML = `
-    <form class="form-${1 + i}">
-    <label for="text-input-${1 + i}">add task</label>
-    <input class="text-input-${1 + i}" id="text-input-${1 + i}" type="text">
-    <button class="btn" value='${1 + i}' id="btn${i}">add toDO TASK</button>
-    </form>
-    <div class="todo-list-${1 + i}"></div>
+function renderToDoListBtn(divContainer, i) {
+  divContainer.innerHTML = `
+  <form class="form-${1 + i}">
+  <label for="text-input-${1 + i}">add task</label>
+  <input class="text-input-${1 + i}" id="text-input-${
+    1 + i
+  }" type="text" autocomplete="off">
+  <button class="btn" value='${1 + i}' id="btn${1 + i}">add toDO TASK</button>
+  </form>
+  <div class="todo-list-${1 + i}"></div>
     `;
-  }
 }
 
-setTimeout(() => {
-  renderToDoListBtn();
-}, 10);
-
-/* todo list dome manipulation */
+/* todo list dom manipulation */
 
 let x = 0;
 
