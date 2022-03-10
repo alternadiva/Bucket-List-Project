@@ -108,8 +108,8 @@ body {
   top: 40%;
   left: 50%;
   transform: translate(-50%, -40%);
-  background-color: whitesmoke;
-  border: 1px solid black;
+  background-color: white;
+  border: 2px solid black;
   border-radius: 15px;
   height: 200px;
   min-width: 320px;
@@ -133,6 +133,7 @@ body {
   width: auto;
   font-size: clamp(1.3rem, 3vw, 1.6rem);
   font-family: "Patrick Hand", cursive;
+  padding-left: 20px;
 }
 
 /* helper classes  */
@@ -153,8 +154,8 @@ body {
   top: 40%;
   left: 50%;
   transform: translate(-50%, -40%);
-  background-color: whitesmoke;
-  border: 1px solid black;
+  background-color: white;
+  border: 2px solid black;
   border-radius: 15px;
   height: auto;
   min-width: 250px;
@@ -184,6 +185,8 @@ body {
   text-align: center;
   border: none;
   border-radius: 10px;
+  background-color: white;
+  border: 2px solid black;
 }
 
 #submit-category {
@@ -194,6 +197,7 @@ body {
   height: 30px;
   font-size: clamp(1rem, 2.5vw, 1.2rem);
   border-radius: 10px;
+  border: 2px solid black;
 }
 .delete-cat {
   cursor: default;
@@ -222,12 +226,13 @@ body {
 
 .task-input {
   width: 170px;
-  height: 30px;
+  height: 25px;
   font-size: clamp(1rem, 2.5vw, 1.2rem);
   font-family: "Patrick Hand", cursive;
   text-align: center;
   border: none;
   border-radius: 10px;
+  border: 1.6px solid black;
 }
 
 .form-class {
@@ -244,6 +249,21 @@ body {
   height: 30px;
   font-size: clamp(1rem, 2.5vw, 1.2rem);
   border-radius: 10px;
+  border: 2px solid black;
+}
+
+#overlay {
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+  cursor: pointer;
 }
 
 /* Desktop view */
