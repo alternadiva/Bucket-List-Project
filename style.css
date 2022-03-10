@@ -50,12 +50,13 @@
 .list-div {
   border-bottom-left-radius: inherit;
   border-bottom-right-radius: inherit;
+  display: none;
 }
 
 .active {
   display: block;
   background-color: whitesmoke;
-  height: 100px;
+  min-height: 100px;
 }
 
 .rotate {
@@ -82,6 +83,28 @@
   gap: 20px;
 }
 
+/*  added style */
+
+.list-div {
+  padding: 10px;
+}
+
+.todoItem {
+  font-size: 1.55rem;
+}
+
+/* helper classes  */
+.done {
+  text-decoration: line-through;
+  font-size: 1.5rem;
+}
+.hide {
+  display: none;
+}
+.show {
+  display: block;
+}
+  
 .icon-div {
   position: absolute;
   top: 30%;

@@ -304,3 +304,67 @@ let categoryObject = [
     iconAlt: "thumbs up icon",
   },
 ];
+
+
+/* to-do-list */
+
+function renderToDoListBtn() {
+  const list = document.querySelectorAll(".list-div");
+  for (let i = 0; i < list.length; i++) {
+    // list[i].innerHTML = "";
+    console.log(list[i]);
+    list[i].innerHTML = `
+    <form class="form-${1 + i}">
+    <label for="text-input-${1 + i}">add task</label>
+    <input class="text-input-${1 + i}" id="text-input-${1 + i}" type="text">
+    <button class="btn" value='${1 + i}' id="btn${i}">add toDO TASK</button>
+    </form>
+    <div class="todo-list-${1 + i}"></div>
+    `;
+  }
+}
+
+setTimeout(() => {
+  renderToDoListBtn();
+}, 10);
+
+// todo list dome manipulation
+
+let x = 0;
+
+window.addEventListener("click", (e) => {
+  const target = e.target;
+
+  const targetClass = target.classList.value;
+
+  if (targetClass === "btn") {
+    let idValue = target.value;
+    const form = document.querySelector(`.form-${idValue}`);
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      let input = document.querySelector(`.text-input-${idValue}`);
+
+      const todoList = document.querySelector(`.todo-list-${idValue}`);
+      const todo = document.createElement("div");
+      todo.textContent = input.value;
+      todo.className = "todoItem";
+      todo.id = `todo-${x}`;
+      todoList.appendChild(todo);
+      input.value = " ";
+      x++;
+    });
+  }
+
+  if (targetClass === "todoItem") {
+    const targetTodo = e.target;
+    targetTodo.classList.add("done");
+    targetTodo.classList.remove("todoItem");
+  }
+
+  if (targetClass === "done") {
+    const targetTodo = e.target;
+    targetTodo.remove();
+  }
+});
+
