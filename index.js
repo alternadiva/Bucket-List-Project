@@ -144,7 +144,6 @@ function deleteCategory() {
 /* Edit category names and save new input */
 
 function editCategory() {
-  document.getElementById("overlay").style.display = "block";
   this.style.display = "none";
   this.nextElementSibling.style.display = "block";
   let catNameEl = this.previousElementSibling;
@@ -167,7 +166,6 @@ function editCategory() {
 }
 
 function saveCategory() {
-  document.getElementById("overlay").style.display = "none";
   this.style.display = "none";
   this.previousElementSibling.style.display = "block";
   let catNameEl = this.parentNode.childNodes[1];
