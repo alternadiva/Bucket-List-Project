@@ -18,20 +18,23 @@ function categoryTitleContent(parentNode) {
     : "Category";
 
   // Category edit button
-  const editCatName = document.createElement("p");
+  const editCatName = document.createElement("img");
   editCatName.className = "edit-cat";
-  editCatName.innerText = "Edit";
+  editCatName.src = "./assets/edit.png";
+  editCatName.alt = "pencil icon";
 
   // Category name saving button
-  const saveCatName = document.createElement("p");
+  const saveCatName = document.createElement("img");
   saveCatName.className = "save-cat";
-  saveCatName.innerText = "Save";
+  saveCatName.src = "./assets/save.png";
+  saveCatName.alt = "diskette icon";
   saveCatName.style.display = "none";
 
   // Category delete button
-  const deleteCatSign = document.createElement("p");
+  const deleteCatSign = document.createElement("img");
   deleteCatSign.className = "delete-cat";
-  deleteCatSign.innerText = "Delete";
+  deleteCatSign.src = "./assets/delete.png";
+  saveCatName.alt = "bin icon";
 
   // Toggle arrow symbol
   const arrowSymbol = document.createElement("p");
@@ -148,8 +151,9 @@ function editCategory() {
   catNameEl.setAttribute("spellcheck", false);
   catNameEl.innerText = "";
   catNameEl.style.background = "white";
-  catNameEl.style.caretColor = "red";
+  catNameEl.style.caretColor = "black";
   catNameEl.focus();
+  catNameEl.removeEventListener("click", toggleCategoryList, false);
 
   const observer = new MutationObserver((mutation) => {
     catNameEl.textContent = mutation[0].target.data;
@@ -168,6 +172,7 @@ function saveCategory() {
   catNameEl.blur();
   catNameEl.style.background = "none";
   catNameEl.setAttribute("contenteditable", false);
+  catNameEl.addEventListener("click", toggleCategoryList);
 }
 
 /* Toggle category divs to open and close */
@@ -217,10 +222,12 @@ popUpDiv.style.display = "none";
 
 const label = document.createElement("label");
 label.for = "name-category-input";
+label.id = "cat-input-label";
 label.innerText = "Name your category:";
 
 const input = document.createElement("input");
 input.type = "text";
+input.autocomplete = "off";
 input.id = "name-category-input";
 
 const submitBtn = document.createElement("button");
@@ -248,7 +255,7 @@ let categoryObject = [
     iconAlt: "suitcase icon",
   },
   {
-    categoryName: "Movies and Series",
+    categoryName: "Movies & Series",
     categoryIcon: "./assets/movie.png",
     iconAlt: "movie icon",
   },
@@ -313,12 +320,14 @@ let categoryObject = [
 
 function renderToDoListBtn(divContainer, i) {
   divContainer.innerHTML = `
-  <form class="form-${1 + i}">
-  <label for="text-input-${1 + i}">add task</label>
-  <input class="text-input-${1 + i}" id="text-input-${
+  <form class="form-${1 + i} form-class">
+  <label for="text-input-${
+    1 + i
+  }" class="task-input-label">Add new task:</label>
+  <input class="text-input-${1 + i} task-input" id="text-input-${
     1 + i
   }" type="text" autocomplete="off">
-  <button class="btn" value='${1 + i}' id="btn${1 + i}">add toDO TASK</button>
+  <button class="btn" value='${1 + i}' id="btn${1 + i}">add</button>
   </form>
   <div class="todo-list-${1 + i}"></div>
     `;

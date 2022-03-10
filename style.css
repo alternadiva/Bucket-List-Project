@@ -1,10 +1,46 @@
-#body {
+html {
+  font-family: "Patrick Hand", cursive;
+  font-family: "Patrick Hand SC", cursive;
+}
+
+body {
+  margin: 5vh 0 10vh 0;
   position: relative;
-  width: 100vw;
+
+  background-color: #ffffff;
+
+  background-size: 30px 30px;
+  background-image: repeating-linear-gradient(
+    0deg,
+    #e0e0e0,
+    #e0e0e0 1px,
+    #ffffff 1px,
+    #ffffff
+  );
+}
+
+#title {
+  width: auto;
+  margin: 40px 0 30px 0;
+  text-align: center;
+  font-size: clamp(2rem, 5vw, 2.7rem);
+}
+
+#add-category-btn {
+  cursor: pointer;
+  display: block;
+  margin: 40px auto 40px auto;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  padding-bottom: 6px;
+  border-radius: 50%;
+  font-size: 1.7rem;
+  font-family: "Patrick Hand", cursive;
+  border: none;
 }
 
 #categories-container {
-  background-color: azure;
   width: auto;
   height: auto;
   margin: 20px;
@@ -38,13 +74,17 @@
 
 .category-title {
   padding: 0;
-  margin: 0;
-  width: max-content;
+  margin: 0 20px;
+  width: 150px;
+  max-width: auto;
+  text-align: left;
+  font-size: clamp(1.4rem, 2.5vw, 1.6rem);
   height: max-content;
 }
 
 .arrow {
   transform: rotate(180deg);
+  margin-left: 20px;
 }
 
 .list-div {
@@ -65,9 +105,9 @@
 
 .pop-up-div {
   position: absolute;
-  top: 30%;
+  top: 40%;
   left: 50%;
-  transform: translate(-50%, -30%);
+  transform: translate(-50%, -40%);
   background-color: whitesmoke;
   border: 1px solid black;
   border-radius: 15px;
@@ -90,7 +130,9 @@
 }
 
 .todoItem {
-  font-size: 1.55rem;
+  width: auto;
+  font-size: clamp(1.3rem, 3vw, 1.6rem);
+  font-family: "Patrick Hand", cursive;
 }
 
 /* helper classes  */
@@ -104,18 +146,20 @@
 .show {
   display: block;
 }
-  
+
 .icon-div {
   position: absolute;
-  top: 30%;
+  top: 40%;
   left: 50%;
-  transform: translate(-50%, -30%);
+  transform: translate(-50%, -40%);
   background-color: whitesmoke;
   border: 1px solid black;
   border-radius: 15px;
   height: auto;
-  min-width: 300px;
-  width: auto;
+  min-width: 250px;
+  width: 300px;
+  padding: 20px;
+  height: auto;
 
   display: flex;
   flex-direction: row;
@@ -125,6 +169,31 @@
   gap: 25px;
 }
 
+#cat-input-label {
+  font-size: clamp(1.3rem, 2.5vw, 1.5rem);
+}
+
+#name-category-input {
+  width: 250px;
+  height: 30px;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  display: block;
+  margin: 0 auto;
+  font-family: "Patrick Hand", cursive;
+  text-align: center;
+  border: none;
+  border-radius: 10px;
+}
+
+#submit-category {
+  font-family: "Patrick Hand SC", cursive;
+  display: block;
+  margin: 0 auto;
+  width: 200px;
+  height: 30px;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  border-radius: 10px;
+}
 .delete-cat {
   cursor: default;
 }
@@ -136,4 +205,74 @@
 
 .icon-selection {
   height: 45px;
+}
+
+.save-cat,
+.delete-cat,
+.edit-cat {
+  cursor: pointer;
+  height: 35%;
+  margin: 0 3px;
+}
+
+.task-input-label {
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+}
+
+.task-input {
+  width: 170px;
+  height: 30px;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  font-family: "Patrick Hand", cursive;
+  text-align: center;
+  border: none;
+  border-radius: 10px;
+}
+
+.form-class {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: no-wrap;
+  justify-content: space-evenly;
+  gap: 8px;
+}
+
+.btn {
+  font-family: "Patrick Hand SC", cursive;
+  width: 40px;
+  height: 30px;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  border-radius: 10px;
+}
+
+/* Desktop view */
+
+@media screen and (min-width: 920px) {
+  #categories-container {
+    width: 92vw;
+    margin: 0 4vw;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 50px;
+    justify-content: left;
+  }
+
+  .categories {
+    width: 400px;
+    height: auto;
+    border-radius: 15px;
+  }
+
+  .list-div {
+    display: block;
+    background-color: whitesmoke;
+    min-height: 150px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+  }
+
+  .arrow {
+    display: none;
+  }
 }
